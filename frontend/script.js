@@ -1,4 +1,4 @@
-const API = "http://127.0.0.1:5000";
+const API = "https://me-api-playground-zrps.onrender.com";
 
 async function loadProfile() {
   const res = await fetch(`${API}/profile`);
@@ -25,7 +25,6 @@ async function loadSkills() {
 async function loadProjects() {
   const res = await fetch(`${API}/projects`);
   const data = await res.json();
-
   const div = document.getElementById("projects");
   div.innerHTML = "";
   data.forEach(p => {
