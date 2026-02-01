@@ -27,4 +27,7 @@ Frontend: https://startling-mousse-24634d.netlify.app/
 Backend: https://me-api-playground-zrps.onrender.com/ 
 DB: https://jrdszycfnpfbksmbyugx.supabase.co
 
+## Resume Link :
+https://drive.google.com/file/d/1BEvvLbrZDGugoHgvB0jGYZDnpY3EpY_Q/view?usp=sharing
+
 
