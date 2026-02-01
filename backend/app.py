@@ -13,7 +13,7 @@ DATABASE_URL = os.getenv("DATABASE_URL")
 print("DB URL Loaded:", DATABASE_URL)   # debug line
 
 def get_conn():
-    return psycopg2.connect('postgresql://postgres:Srishti@123@db.jrdszycfnpfbksmbyugx.supabase.co:5432/postgres', sslmode='require')
+    return psycopg2.connect('postgresql://postgres:admonSupabase123@db.jrdszycfnpfbksmbyugx.supabase.co:5432/postgres', sslmode='require')
 
 @app.route("/health")
 def health():
