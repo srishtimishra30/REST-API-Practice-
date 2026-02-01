@@ -8,7 +8,7 @@ load_dotenv()
 app = Flask(__name__)
 CORS(app)
 
-DATABASE_URL = os.getenv("DATABASE_URL")
+DATABASE_URL = os.environ.getenv("DATABASE_URL")
 
 def get_conn():
     return psycopg2.connect(DATABASE_URL, sslmode='require')
@@ -19,7 +19,6 @@ def health():
 
 @app.route("/profile")
 def profile():
-    print('debug')
     conn = get_conn()
     cur = conn.cursor()
     cur.execute("SELECT name, email, education FROM profile LIMIT 1;")
@@ -111,5 +110,4 @@ def home():
         ]
     }
 if __name__ == "__main__":
-    print(f'in this block {DATABASE_URL}')
     app.run(host="0.0.0.0", port=int(os.environ.get("PORT", 5000)))
