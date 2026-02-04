@@ -42,44 +42,57 @@ def profile():
 def skills():
     conn = get_conn()
     cur = conn.cursor()
-    cur.execute("SELECT name FROM skills;")
+    cur.execute("SELECT DISTINCT name FROM skills ORDER BY name;")
     data = [i[0] for i in cur.fetchall()]
     cur.close()
     conn.close()
     return jsonify(data)
+
 
 @app.route("/skills/top")
 def top_skills():
     conn = get_conn()
     cur = conn.cursor()
-    cur.execute("SELECT name FROM skills LIMIT 5;")
+    cur.execute("""
+        SELECT DISTINCT name
+        FROM skills
+        ORDER BY name
+        LIMIT 5;
+    """)
     data = [i[0] for i in cur.fetchall()]
     cur.close()
     conn.close()
     return jsonify(data)
 
+
 @app.route("/projects")
 def projects():
     conn = get_conn()
     cur = conn.cursor()
-    cur.execute("SELECT title, description, link, skill FROM projects;")
+    cur.execute("""
+        SELECT DISTINCT title, description, link
+        FROM projects;
+    """)
     rows = cur.fetchall()
     cur.close()
     conn.close()
     return jsonify(rows)
 
+
 @app.route("/projects/<skill>")
 def projects_by_skill(skill):
     conn = get_conn()
     cur = conn.cursor()
-    cur.execute(
-        "SELECT title, description, link FROM projects WHERE description ILIKE %s;",
-        (f"%{skill}%",)
-    )
+    cur.execute("""
+        SELECT DISTINCT title, description, link
+        FROM projects
+        WHERE skill ILIKE %s;
+    """, (skill,))
     rows = cur.fetchall()
     cur.close()
     conn.close()
     return jsonify(rows)
+
 
 @app.route("/search")
 def search():
