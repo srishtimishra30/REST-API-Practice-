@@ -1,6 +1,6 @@
 # Me-API Playground
 
-## Architecture
+# Architecture
 Frontend: HTML/CSS/JS  
 Backend: Flask API  
 Database: PostgreSQL (Supabase)
@@ -15,7 +15,7 @@ Database: PostgreSQL (Supabase)
 GET /health  
 GET /profile  
 GET /skills  
-GET /skills/top  
+GET /skills/top
 GET /projects  
 GET /projects/<skill>  
 
@@ -27,4 +27,5 @@ Frontend: https://startling-mousse-24634d.netlify.app/
 Backend: https://me-api-playground-zrps.onrender.com/ 
 DB: https://jrdszycfnpfbksmbyugx.supabase.co
 
-
+Resume link: 
+https://drive.google.com/file/d/1BEvvLbrZDGugoHgvB0jGYZDnpY3EpY_Q/view?usp=sharing
